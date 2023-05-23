@@ -1,0 +1,69 @@
+#copertina{
+    width: 100%;
+    min-height: 600px;
+    background-size: cover;
+    z-index: -1;
+    grid-area: header;
+}
+
+#videoCopertina video{
+    width: 100%;
+}
+
+#titolo{
+    margin-top: -550px;
+    margin-left: 40px;
+}
+
+#titolo img{
+    height: 100px;
+}
+
+.info{
+    color: #ffffff;
+    width: 40%;
+    font-size: 1.4em;
+    margin-top: 10px;
+}
+
+#bottoni{
+    height: 40px;
+    position: relative;
+    top: 30px;
+    padding: 0px 30px;
+    z-index: 1;
+}
+
+#play, #extra{
+    padding: 0px 20px;
+    height: 40px;
+    background-color: #ffffff;
+    border: none;
+    float: left;
+    font-size: 1em;
+    margin: 10px;
+    border-radius: 3px;
+}
+
+#play img, #extra img{
+    float: left;
+    height: 20px;
+    padding-right: 15px;
+}
+
+#volume{
+    background-color: #ffffff00;
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
+    float: right;
+}
+
+#volume img{
+    padding: 2px;
+    height: 30px;
+}
+
+#play:hover, #extra:hover, #volume:hover{
+    background-color: #808080ca;
+}

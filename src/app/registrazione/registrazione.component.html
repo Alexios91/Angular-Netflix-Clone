@@ -1,0 +1,73 @@
+<!-- <div class="center-screen">
+    <h2>REGISTRATI ORA</h2>
+    <form action="pagina.jsp" method="post" id="form2">
+        <ul>
+            <li>
+                <input type="text" name="email" id="email" placeholder="Email" autocomplete="off">
+                <span></span>
+            </li>
+            <li>
+                <input type="password" name="pass" id="pass" placeholder="Password" autocomplete="off">
+                <span></span>
+            </li>
+            <li>
+                <input type="password" name="confpass" id="confpass" placeholder="Conferma Password" autocomplete="off">
+                <span></span>
+            </li>
+            <li>
+                <input type="checkbox" name="privacy" id="privacy">
+                <label for="privacy">Accetto le condizioni sulla privacy</label>
+                <span></span>
+            </li>
+            <li>
+                <button>Invia dati</button>
+               
+            </li>
+        </ul>
+    </form>
+</div> -->
+
+
+
+<div class="center-screen">
+    <h2>REGISTRATI ORA</h2>
+    <form #laForm="ngForm" class="auth" (ngSubmit)="register()">
+        <mat-form-field appearance="fill">
+            <mat-label>Nome</mat-label>
+            <input #nome="ngModel" required [(ngModel)]="model.nome" type="text" matInput name="nome"
+                placeholder="Nome...">
+            <mat-error *ngIf="nome.hasError('required')">
+                Nome obbligatorio
+            </mat-error>
+        </mat-form-field>
+
+        <mat-form-field appearance="fill">
+            <mat-label>E-mail</mat-label>
+            <input #email="ngModel" required [(ngModel)]="model.email" type="email" matInput name="email"
+                placeholder="E-mail..."
+                pattern="[a-z0-9!#$%&'*+/=?^_`{|}~-]+(?:\.[a-z0-9!#$%&'*+/=?^_`{|}~-]+)*@(?:[a-z0-9](?:[a-z0-9-]*[a-z0-9])?\.)+[a-z0-9](?:[a-z0-9-]*[a-z0-9])?">
+            <mat-error *ngIf="email.hasError('required')">
+                E-mail obbligatoria
+            </mat-error>
+            <mat-error *ngIf="email.invalid && !email.pristine">
+                E-mail non valida
+            </mat-error>
+        </mat-form-field>
+
+        <mat-form-field appearance="fill">
+            <mat-label>Password</mat-label>
+            <input #password="ngModel" required [(ngModel)]="model.password" type="password" matInput name="password"
+                placeholder="Password..." pattern="^(?=.*\d)(?=.*[a-z])(?=.*[A-Z])(?=.*[a-zA-Z]).{8,}$">
+            <mat-error *ngIf="password.hasError('pattern')">
+                Password non valida
+            </mat-error>
+        </mat-form-field>
+
+        <mat-checkbox class="privacy">Accetto le condizioni sulla privacy</mat-checkbox>
+
+        <button mat-raised-button color="primary" type="submit" [disabled]="!laForm.form.valid">Registrami</button>
+    </form>
+    <pre>
+        {{model | json}}
+    </pre>
+</div>

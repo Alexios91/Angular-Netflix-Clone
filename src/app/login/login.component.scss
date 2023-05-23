@@ -1,0 +1,25 @@
+body{
+    background-image: url("../../assets/img/sfondo.jpg") ;
+    //background-size: cover;
+    //background-attachment: fixed;
+    
+}
+
+.signup {
+    p{
+        font-size: 1.14em;
+	    margin: 25px 5px 5px 5px;
+    }
+
+    a{
+        font-size: 1.1em;
+	    text-decoration: none;
+        color: #ff0000;
+        cursor: pointer;
+    }
+
+    a:hover {
+	    text-decoration: underline;
+    }
+}
+

@@ -1,0 +1,56 @@
+<div class="center-screen">
+    <h2>Contattaci</h2>
+    <form #laForm="ngForm" class="auth">
+        <mat-form-field appearance="fill">
+            <mat-label>Nome</mat-label>
+            <input #nome="ngModel" required [(ngModel)]="model.nome" type="text" matInput name="nome"
+                placeholder="Nome...">
+            <mat-error *ngIf="nome.hasError('required')">
+                Nome obbligatorio
+            </mat-error>
+        </mat-form-field>
+
+        <mat-form-field appearance="fill">
+            <mat-label>Cognome</mat-label>
+            <input #cognome="ngModel" required [(ngModel)]="model.cognome" type="text" matInput name="cognome"
+                placeholder="Cognome...">
+            <mat-error *ngIf="cognome.hasError('required')">
+                Cognome obbligatorio
+            </mat-error>
+        </mat-form-field>
+
+        <mat-form-field appearance="fill">
+            <mat-label>E-mail</mat-label>
+            <input #email="ngModel" required [(ngModel)]="model.email" type="email" matInput name="email"
+                placeholder="E-mail..."
+                pattern="[a-z0-9!#$%&'*+/=?^_`{|}~-]+(?:\.[a-z0-9!#$%&'*+/=?^_`{|}~-]+)*@(?:[a-z0-9](?:[a-z0-9-]*[a-z0-9])?\.)+[a-z0-9](?:[a-z0-9-]*[a-z0-9])?">
+            <mat-error *ngIf="email.hasError('required')">
+                E-mail obbligatoria
+            </mat-error>
+            <mat-error *ngIf="email.invalid && !email.pristine">
+                E-mail non valida
+            </mat-error>
+        </mat-form-field>
+
+        <mat-form-field appearance="fill">
+            <mat-label>Password</mat-label>
+            <input #password="ngModel" required [(ngModel)]="model.password" type="password" matInput name="password"
+                placeholder="Password...">
+            <mat-error *ngIf="password.hasError('required')">
+                Password obbligatoria
+            </mat-error>
+        </mat-form-field>
+
+        <mat-form-field appearance="fill">
+            <mat-label>Textarea</mat-label>
+            <textarea matInput></textarea>
+        </mat-form-field>
+        <mat-checkbox #privacy="ngModel" required [(ngModel)]="model.privacy" class="privacy">Accetto le condizioni
+            sulla privacy
+            <mat-error *ngIf="privacy.hasError('required')">
+                Per continuare è obbligatorio accettare le condizioni sulla privacy
+            </mat-error>
+        </mat-checkbox>
+        <button mat-raised-button color="primary" type="submit" [disabled]="!laForm.form.valid">Invia</button>
+    </form>
+</div>
